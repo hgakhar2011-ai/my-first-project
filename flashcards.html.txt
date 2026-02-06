@@ -1,97 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Flashcards</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        #card {
-            width: 400px;
-            height: 220px;
-            background: #1e293b;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 22px;
-            padding: 20px;
-            cursor: pointer;
-            user-select: none;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
-
-        #hint {
-            margin-top: 20px;
-            opacity: 0.7;
-            font-size: 14px;
-        }
-
-        button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 10px;
-            background: #38bdf8;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Flashcards</h1>
 
-<div id="card">Click "New Card"</div>
-<div id="hint">Click the card to reveal answer</div>
-<button onclick="newCard()">New Card</button>
+<div class="card-container">
+    <div class="card" id="card">
+        <div class="front">Click "New Card"</div>
+        <div class="back"></div>
+    </div>
+</div>
 
-<script>
-const qa = [
-    {
-        question: "What is PPE?",
-        answer: "PPE stands for Personal Protective Equipment, including gloves, masks, and gowns."
-    },
-    {
-        question: "How do you assess LoC?",
-        answer: "Using the AVPU scale: Alert, Voice, Pain, Unresponsive."
-    },
-    {
-        question: "What is the purpose of the Ben Stelter Foundation?",
-        answer: "To support children fighting cancer and continue Ben's legacy."
-    }
-];
+<button id="newCardBtn">New Card</button>
 
-let current = null;
-let showingAnswer = false;
-
-function newCard() {
-    current = qa[Math.floor(Math.random() * qa.length)];
-    document.getElementById("card").innerText = current.question;
-    showingAnswer = false;
-}
-
-document.getElementById("card").addEventListener("click", () => {
-    if (!current) return;
-    if (!showingAnswer) {
-        document.getElementById("card").innerText = current.answer;
-        showingAnswer = true;
-    } else {
-        document.getElementById("card").innerText = current.question;
-        showingAnswer = false;
-    }
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
