@@ -1,0 +1,35 @@
+const qa = [
+    {
+        question: "What is PPE?",
+        answer: "PPE stands for Personal Protective Equipment, including gloves, masks, and gowns."
+    },
+    {
+        question: "How do you assess LoC?",
+        answer: "Using the AVPU scale: Alert, Voice, Pain, Unresponsive."
+    },
+    {
+        question: "What is the purpose of the Ben Stelter Foundation?",
+        answer: "To support children fighting cancer and continue Ben's legacy."
+    }
+];
+
+let current = null;
+const card = document.getElementById("card");
+const front = card.querySelector(".front");
+const back = card.querySelector(".back");
+
+function newCard() {
+    current = qa[Math.floor(Math.random() * qa.length)];
+    front.innerText = current.question;
+    back.innerText = current.answer;
+    card.classList.remove("flipped");
+}
+
+// Click card to flip
+card.addEventListener("click", () => {
+    if (!current) return;
+    card.classList.toggle("flipped");
+});
+
+// Click button to get new card
+document.getElementById("newCardBtn").addEventListener("click", newCard);
