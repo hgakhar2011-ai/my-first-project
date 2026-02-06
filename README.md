@@ -1,2 +1,1 @@
-# my-first-project
-flashcard app
+# flashcard app for studying for bronze cross practical first aid
